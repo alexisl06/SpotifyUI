@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify UI Test</title>
+    <link rel="stylesheet" href="mainStyle.css">
+</head>
+<body>
+    <div class="header">
+        <div class="left-header">
+            <button class="button"><p>...</p></button>
+            <button class="button"><p><<p></button>
+            <button class="button"><p>></p></button>
+        </div>
+        <div class="center-header">
+            <button class="button"><img src="images/homeButton.png" class="home-button"></button>
+            <div class="search-bar">
+                <button class="button"><img src="images/searchBar.png" class="search-icon"></button>
+                <input class="search-input" type="search" placeholder="What do you want to play?">
+            </div>
+        </div>
+        <div class="right-header">
+            <button class="button"><img src="images/profilePicture.png" class="profile-picture" id="dropdown-icon" onclick="toggleMenu()"></button>
+            <div class="profile-options-wrap" id="dropdown">
+                <div class="profile-options">
+                    <a class="profile-options-link">
+                        <p>Account</p>
+                    </a>
+                    <a class="profile-options-link">
+                        <p>Profile</p>
+                    </a>
+                    <a class="profile-options-link">
+                        <p>Private session</p>
+                    </a>
+                    <a class="profile-options-link">
+                        <p>Settings</p>
+                    </a>
+                    <hr>
+                    <a class="profile-options-link">
+                        <p>Log out</p>
+                    </a>
+                </div>
+            </div>
+            <button class="button"><p>-</p></button>
+            <button class="button"><p>o</p></button>
+            <button class="button"><p>x</p></button>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="library-section" id="lib">
+            <div class="library-topbar" onclick="expandLib()">
+                <button class="button"><p>Library</p></button>
+            </div>
+            <div class="library-section-content">
+                <div class="library-section-images">
+                    <img src="images/likedSongs.jpg"  class="lib-album-size">
+                    <img src="images/onRepeat.jpg" class="lib-album-size">
+                    <img src="images/peachEyes.jpg" class="lib-album-size">
+                    <img src="images/vansire.jpg" class="lib-album-size">
+                    <img src="images/alexandros.jpg" class="lib-album-size">
+                    <img src="images/akugetsu.jpg" class="lib-album-size">
+                    <img src="images/personaThree.jpg" class="lib-album-size">
+                </div>
+                <div class="library-section-text">
+                    <p>Liked Songs<br>Playlist · Alexis</p>
+                    <p>On Repeat<br>Playlist · Spotify</p>
+                    <p>Playlist #1<br>Playlist · Alexis</p>
+                    <p>Playlist #2<br>Playlist · Alexis</p>
+                    <p>Playlist #3<br>Playlist · Alexis</p>
+                    <p>Playlist #4<br>Playlist · Alexis</p>
+                    <p>Playlist #5<br>Playlist · Alexis</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-section">
+            <div class="main-topbar">
+                <button class="button"><p>Main Topbar</p></button>
+            </div>
+            <div class="main-section-content" id="main">
+                <p>This project was made to test if I could recreate the Spotify UI</p>
+                <p>Additionally, I wanted to improve my HTML, CSS, and JS skills</p>
+                <p>MORE INFO:</p>
+                <p>This is a main section tester & holds information</p>
+                <p>The three main sections in the middle of the screen are scrollable up and down</p>
+                <p>Not everything is clickable! READ BELOW FOR A LIST OF CLICKABLE ITEMS: </p>
+                <p>The library section's top bar</p>
+                <p>The small song icon in the bottom left corner</p>
+                <p>The profile icon in the top corner</p>
+                <p>The search bar is clickable and can be typed in</p>
+                <p>Unfortunately, nothing on this page leads to a different one. However I would like to add more functionality later on!</p>
+                <p>Fun fact: The 'album' covers included represent some of my favorite songs/albums/artists :)</p>
+                <p>Started: Nov 2024</p>
+            </div>
+        </div>
+        <div class="song-info-section" id="song-info">
+            <div class="song-info-topbar">
+                <button class="button"><p>On Repeat</p></button>
+            </div>
+            <div class="song-info-content">
+                <img src="images/peachEyes.jpg" class="big-song-size">
+                <p>Peach Eyes<br>wave to earth</p>
+                <p>song details below</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quo quasi fugit tempora iure repellendus porro hic facere optio,
+                    ab officiis quaerat tenetur blanditiis quae eveniet facilis
+                    asperiores velit! Quia, perspiciatis.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="song-small-info">
+            <button class="button"><img src="images/peachEyes.jpg" class="song-img-size" onclick="openSong()"></button>
+            <p class="current-song-info">Peach Eyes<br>wave to earth</p>
+        </div>
+        <div class="song-play-info">
+            <div class="top-footer">
+                <button class="button"><img src="images/shuffleButton.png" class="shuffle-button-size"></button>
+                <button class="button"><img src="images/backButton.png" class="back-button-size"></button>
+                <button class="button"><img src="images/pauseButton.png" class="play-button-size"></button>
+                <button class="button"><img src="images/backButton.png" class="next-button-size"></button>
+                <button class="button"><img src="images/repeatButton.png" class="repeat-button-size"></button>
+            </div>
+            <div class="bottom-footer">
+                <p>1:14</p>
+                <hr class="progress">
+                <hr class="progress-bar">
+                <p>3:05</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let profileOptions = document.getElementById("dropdown");
+        let songInfoSize = document.getElementById("song-info");
+        let libSize = document.getElementById("lib");
+        let toggleState = false;
+        let profileDisplayed = false;
+
+        function toggleMenu() {
+            profileOptions.classList.toggle("open-profile-options");
+            toggleState = !toggleState;
+        }
+
+        window.addEventListener('click', function(e) {
+            if(toggleState && !profileOptions.contains(e.target) && !document.getElementById("dropdown-icon").contains(e.target)) {
+                profileOptions.classList.toggle("open-profile-options");
+                toggleState = false;
+            }
+        });
+
+        function openSong() {
+            songInfoSize.classList.toggle("open-song");
+        }
+
+        function expandLib() {
+            libSize.classList.toggle("open-lib");
+        }
+    </script>
+</body>
+</html>
